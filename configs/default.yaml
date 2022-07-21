@@ -17,4 +17,5 @@ db:
     maxIdleTime: 30
     maxLifeTime: 3600
     timeout: 30
+  portsTableName: ${PORTS_TABLE_SCHEMA}
   migrationPath: "./scripts"

@@ -4,12 +4,12 @@ package repository
 
 import (
 	"context"
-	"github.com/hiteshpattanayak-tw/ports_processor/internal/app/model"
+	dbModel "github.com/hiteshpattanayak-tw/ports_processor/internal/app/db/migrations/model"
 	"gorm.io/gorm"
 )
 
 type PortRepository interface {
-	UpsertPort(ctx context.Context, port *model.Port) error
+	UpsertPort(ctx context.Context, dbName string, port *dbModel.Port) error
 }
 
 type portRepository struct {
@@ -20,8 +20,8 @@ func ProvidePortRepository(db *gorm.DB) PortRepository {
 	return &portRepository{portDb: db}
 }
 
-func (pr *portRepository) UpsertPort(ctx context.Context, port *model.Port) error {
-	err := pr.portDb.WithContext(ctx).Where(model.Port{Code: port.Code}).Save(port).Error
+func (pr *portRepository) UpsertPort(ctx context.Context, dbName string, port *dbModel.Port) error {
+	err := pr.portDb.WithContext(ctx).Table(dbName).Where(dbModel.Port{Name: port.Name}).Save(port).Error
 	if err != nil {
 		return err
 	}

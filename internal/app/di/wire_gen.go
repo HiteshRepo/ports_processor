@@ -39,6 +39,10 @@ func InitializeApp(ctx context.Context, cancel context.CancelFunc) (*app.App, er
 	if err != nil {
 		return nil, err
 	}
+	migrator, err := migrations.ProvideMigrator(databaseConfig, gormDB, zapLogger)
+	if err != nil {
+		return nil, err
+	}
 	appApp := &app.App{
 		Ctx:        ctx,
 		Cancel:     cancel,
@@ -46,6 +50,7 @@ func InitializeApp(ctx context.Context, cancel context.CancelFunc) (*app.App, er
 		PortRepo:   portRepository,
 		Logger:     zapLogger,
 		AppConfig:  appConfig,
+		Migrator:   migrator,
 	}
 	return appApp, nil
 }

@@ -2,7 +2,7 @@ fileignoreconfig:
 - filename: go.sum
   checksum: d8ab342f3d538b7421be6623010b7f529e44ad563b0e3258f6f42395ed9f55d9
 - filename: internal/pkg/db/database_config.go
-  checksum: 4c1378fc8b593e4b546b192512d756e1202002ccb52b27145730d9136d85c419
+  checksum: 35270e1acf3d9c47dd6abc202af7bc843b6fa87d0594f7284044b4a65a08a4e0
 - filename: internal/pkg/db/db.go
   checksum: 3b47e205f53affb248e339da1d73a4239df7841e80a8c302d90c0ffb52c0ca44
 - filename: internal/pkg/logger/logger_test.go
@@ -18,19 +18,21 @@ fileignoreconfig:
 - filename: internal/pkg/db/migrations/migrator_test.go
   checksum: d2bc579cd669d2449a5aab435493ee7d97732f77610592a7392d67745b6d2ff1
 - filename: internal/app/db/migrations/scripts/000001_create_port_table.up.sql
-  checksum: a23e9c46ce7863cf57ef8971b3b22083890d81b4ca22b2242bbce1e2e1a43f82
+  checksum: ff4b11e17b07ed9af783e88b6aad377b2e3d4879021980b30fe49e12c014b1f1
 - filename: internal/app/db/migrations/scripts/scripts_test.go
   checksum: 52596ae64daec8fb34cf01159cee4a23e7be2f68a6073a37fdbd1653da49ef73
 - filename: internal/pkg/config/config.go
   checksum: 16e216e66cb874ebe513c2f82a1e483066438a2306b48eacf2175140da4253bc
 - filename: configs/local.yaml
-  checksum: 4ec019b8249dfe06a15045dbfaee4dcaa8b32e974e642bfa0b3c657afafc58cd
+  checksum: 8844fd773c391dfd6373397174b1516158b0a5117edb63e0963c0ea417065c96
 - filename: configs/default.yaml
   checksum: 601b2b0dbe22376627d8a8f2f905832af3a14ac55a76cbd3b5f73aca77747e78
 - filename: internal/app/config/config.go
-  checksum: 0200b737f38e0b8dbc421c6a043219e51a3abaecb8bae9c90394bc8b123135e2
+  checksum: fad8fe41c10be4e7464552d210fa1eb65af758740b6b84d953e8058a61744a9a
 - filename: internal/app/config/config_test.go
-  checksum: 1564ed08ed3c3d8a09df9c4546dded8227d4a5228480f5177ae9062dbc4b7eeb
+  checksum: c07cb7f89910f38ebe3e8f8186dc4f2d4397479db77cf6786dc0b7cea3079b3a
+- filename: data/ports.json
+  checksum: f770dd941277768f38343e9d27a84e76b6f540191ab7f557ac077fb38b390177
 
 scopeconfig:
   - scope: go

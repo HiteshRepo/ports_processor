@@ -6,9 +6,9 @@ db:
   name: "ports_db"
   user: "postgres"
   host: "localhost"
-  password: "mySuperSecretPassword"
+  password: "mysecretpassword"
   schema: "public"
-  port: 5432
+  port: 8888
   logMode: true
   sslMode: "disable"
   connectionPool:
@@ -17,4 +17,5 @@ db:
     maxIdleTime: 30
     maxLifeTime: 3600
     timeout: 30
+  portsTableName: "ports"
   migrationPath: "./internal/app/db/migrations/scripts"

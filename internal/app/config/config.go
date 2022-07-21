@@ -38,13 +38,14 @@ func LoadConfig(reader io.Reader) (c AppConfig, err error) {
 	keysToEnvironmentVariables := map[string]string{
 		"app.logLevel": "LOG_LEVEL",
 
-		"db.name":     "DB_NAME",
-		"db.user":     "DB_USER",
-		"db.host":     "DB_HOST",
-		"db.port":     "DB_PORT",
-		"db.schema":   "DB_SCHEMA",
-		"db.password": "DB_PASSWORD",
-		"db.sslmode":  "DB_SSLMODE",
+		"db.name":           "DB_NAME",
+		"db.user":           "DB_USER",
+		"db.host":           "DB_HOST",
+		"db.port":           "DB_PORT",
+		"db.schema":         "DB_SCHEMA",
+		"db.password":       "DB_PASSWORD",
+		"db.sslmode":        "DB_SSLMODE",
+		"db.portsTableName": "PORTS_TABLE_NAME",
 	}
 
 	err = config.LoadConfig(reader, keysToEnvironmentVariables, &c)

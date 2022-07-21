@@ -22,13 +22,14 @@ func (c *configSuite) SetupTest() {
 	configReader, err := os.Open("../../../configs/default.yaml")
 	c.Require().NoError(err)
 	environmentVariables := map[string]string{
-		"LOG_LEVEL":              "debug",
+		"LOG_LEVEL": "debug",
 
-		"DB_NAME":     "postgresdb",
-		"DB_USER":     "tsdbadmin1",
-		"DB_HOST":     "localhost",
-		"DB_PASSWORD": "tsdbpwd",
-		"DB_SCHEMA":   "public",
+		"DB_NAME":       "postgresdb",
+		"DB_USER":       "tsdbadmin1",
+		"DB_HOST":       "localhost",
+		"DB_PASSWORD":   "tsdbpwd",
+		"DB_SCHEMA":     "public",
+		"PORTS_TABLE_NAME": "ports",
 	}
 	for environmentVariable, value := range environmentVariables {
 		err := os.Setenv(environmentVariable, value)
@@ -60,6 +61,7 @@ func (c *configSuite) TestDatabaseConfig() {
 	c.Assert().Equal("disable", databaseConfig.SslMode)
 	c.Assert().Equal("./scripts", databaseConfig.MigrationPath)
 	c.Assert().Equal("public", databaseConfig.Schema)
+	c.Assert().Equal("ports", databaseConfig.PortsTableName)
 
 	postgresConnPoolConfig := databaseConfig.Connection
 

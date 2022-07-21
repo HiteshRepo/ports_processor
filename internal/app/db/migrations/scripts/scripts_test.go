@@ -70,7 +70,7 @@ func (suite *migrationsSuite) TestShouldCreatePortsTable() {
 	suite.Require().Equal(10, len(tableInfo))
 
 	suite.Assert().Equal("alias", tableInfo[0].ColumnName)
-	suite.Assert().Equal("ARRAY", tableInfo[0].DataType)
+	suite.Assert().Equal("character varying", tableInfo[0].DataType)
 
 	suite.Assert().Equal("city", tableInfo[1].ColumnName)
 	suite.Assert().Equal("character varying", tableInfo[1].DataType)
@@ -79,7 +79,7 @@ func (suite *migrationsSuite) TestShouldCreatePortsTable() {
 	suite.Assert().Equal("character varying", tableInfo[2].DataType)
 
 	suite.Assert().Equal("coordinates", tableInfo[3].ColumnName)
-	suite.Assert().Equal("ARRAY", tableInfo[3].DataType)
+	suite.Assert().Equal("character varying", tableInfo[3].DataType)
 
 	suite.Assert().Equal("country", tableInfo[4].ColumnName)
 	suite.Assert().Equal("character varying", tableInfo[4].DataType)
@@ -91,11 +91,11 @@ func (suite *migrationsSuite) TestShouldCreatePortsTable() {
 	suite.Assert().Equal("character varying", tableInfo[6].DataType)
 
 	suite.Assert().Equal("regions", tableInfo[7].ColumnName)
-	suite.Assert().Equal("ARRAY", tableInfo[7].DataType)
+	suite.Assert().Equal("character varying", tableInfo[7].DataType)
 
 	suite.Assert().Equal("timezone", tableInfo[8].ColumnName)
 	suite.Assert().Equal("character varying", tableInfo[8].DataType)
 
 	suite.Assert().Equal("unlocs", tableInfo[9].ColumnName)
-	suite.Assert().Equal("ARRAY", tableInfo[9].DataType)
+	suite.Assert().Equal("character varying", tableInfo[9].DataType)
 }
