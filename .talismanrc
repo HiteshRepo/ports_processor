@@ -17,6 +17,10 @@ fileignoreconfig:
   checksum: b0f7fc73ce282787367c7727edb7342124997a31743d5fcbdbeecf115ac9794e
 - filename: internal/pkg/db/migrations/migrator_test.go
   checksum: d2bc579cd669d2449a5aab435493ee7d97732f77610592a7392d67745b6d2ff1
+- filename: internal/app/db/migrations/scripts/000001_create_port_table.up.sql
+  checksum: a23e9c46ce7863cf57ef8971b3b22083890d81b4ca22b2242bbce1e2e1a43f82
+- filename: internal/app/db/migrations/scripts/scripts_test.go
+  checksum: 52596ae64daec8fb34cf01159cee4a23e7be2f68a6073a37fdbd1653da49ef73
 
 scopeconfig:
   - scope: go
