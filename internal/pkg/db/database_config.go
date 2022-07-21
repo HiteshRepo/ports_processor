@@ -10,6 +10,7 @@ type DatabaseConfig struct {
 	LogMode       bool           `mapstructure:"logMode"`
 	SslMode       string         `mapstructure:"sslMode"`
 	Connection    ConnectionPool `mapstructure:"connectionPool"`
+	MigrationPath string         `mapstructure:"migrationPath"`
 }
 
 type ConnectionPool struct {

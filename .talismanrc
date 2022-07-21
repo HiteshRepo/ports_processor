@@ -11,6 +11,12 @@ fileignoreconfig:
   checksum: 5ad49d2fff18b681847b2eb06932583c1c21aae3d96d6198715bf64eab3a0baa
 - filename: test/suites/postgres_suite.go
   checksum: f4a8e2dfb2a96b3ce84e5a5802d4de22797d6d2471b3745627a663cf15c4103e
+- filename: internal/pkg/db/migrations/testdata/migrations/001_first_migration.up.sql
+  checksum: 40c3a6d80a8b2c8764ec5d357c13c889aa07179e341f8ec439637049f038220a
+- filename: internal/pkg/db/migrations/testdata/migrations/002_second_migration.up.sql
+  checksum: b0f7fc73ce282787367c7727edb7342124997a31743d5fcbdbeecf115ac9794e
+- filename: internal/pkg/db/migrations/migrator_test.go
+  checksum: d2bc579cd669d2449a5aab435493ee7d97732f77610592a7392d67745b6d2ff1
 
 scopeconfig:
   - scope: go
