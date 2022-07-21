@@ -1,5 +1,7 @@
 package db
 
+//go:generate mockery --name=DatabasePool
+
 import (
 	"fmt"
 	"github.com/jackc/pgx/v4/stdlib"
