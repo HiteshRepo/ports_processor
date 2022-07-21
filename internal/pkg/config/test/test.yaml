@@ -1,0 +1,3 @@
+app:
+  serviceName: "port-processor"
+  logLevel: ${LOG_LEVEL}

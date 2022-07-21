@@ -21,6 +21,8 @@ fileignoreconfig:
   checksum: a23e9c46ce7863cf57ef8971b3b22083890d81b4ca22b2242bbce1e2e1a43f82
 - filename: internal/app/db/migrations/scripts/scripts_test.go
   checksum: 52596ae64daec8fb34cf01159cee4a23e7be2f68a6073a37fdbd1653da49ef73
+- filename: internal/pkg/config/config.go
+  checksum: 16e216e66cb874ebe513c2f82a1e483066438a2306b48eacf2175140da4253bc
 
 scopeconfig:
   - scope: go
