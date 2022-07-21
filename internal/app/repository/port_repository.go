@@ -16,7 +16,7 @@ type portRepository struct {
 	portDb *gorm.DB
 }
 
-func ProvideTierConfigRepository(db *gorm.DB) PortRepository {
+func ProvidePortRepository(db *gorm.DB) PortRepository {
 	return &portRepository{portDb: db}
 }
 
