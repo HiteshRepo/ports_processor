@@ -40,9 +40,12 @@ func InitializeApp(ctx context.Context, cancel context.CancelFunc) (*app.App, er
 		return nil, err
 	}
 	appApp := &app.App{
+		Ctx:        ctx,
+		Cancel:     cancel,
 		JsonStream: stream,
 		PortRepo:   portRepository,
 		Logger:     zapLogger,
+		AppConfig:  appConfig,
 	}
 	return appApp, nil
 }

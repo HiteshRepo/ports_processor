@@ -1,6 +1,7 @@
 app:
   serviceName: "ports-processor"
   logLevel: "debug"
+  portsFilePath: "./data/ports.json"
 db:
   name: ${DB_NAME}
   user: ${DB_USER}

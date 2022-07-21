@@ -1,6 +1,7 @@
 app:
   serviceName: "ports-processor"
   logLevel: "debug"
+  portsFilePath: "./data/ports.json"
 db:
   name: "ports_db"
   user: "postgres"
@@ -16,4 +17,4 @@ db:
     maxIdleTime: 30
     maxLifeTime: 3600
     timeout: 30
-  migrationPath: "./scripts"
+  migrationPath: "./internal/app/db/migrations/scripts"
