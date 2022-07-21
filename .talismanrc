@@ -3,6 +3,8 @@ fileignoreconfig:
   checksum: d8ab342f3d538b7421be6623010b7f529e44ad563b0e3258f6f42395ed9f55d9
 - filename: internal/pkg/db/database_config.go
   checksum: 4c1378fc8b593e4b546b192512d756e1202002ccb52b27145730d9136d85c419
+- filename: internal/pkg/db/db.go
+  checksum: 3b47e205f53affb248e339da1d73a4239df7841e80a8c302d90c0ffb52c0ca44
 
 scopeconfig:
   - scope: go
