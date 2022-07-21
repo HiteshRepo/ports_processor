@@ -1,5 +1,7 @@
 package repository
 
+//go:generate mockery --name=PortRepository
+
 import (
 	"context"
 	"github.com/hiteshpattanayak-tw/ports_processor/internal/app/model"
