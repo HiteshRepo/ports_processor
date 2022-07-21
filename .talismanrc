@@ -9,6 +9,8 @@ fileignoreconfig:
   checksum: fb6e50ccb47609616623cccc2ca107401232fb5887d2b32c39160f5a692dc069
 - filename: internal/pkg/logger/logger.go
   checksum: 5ad49d2fff18b681847b2eb06932583c1c21aae3d96d6198715bf64eab3a0baa
+- filename: test/suites/postgres_suite.go
+  checksum: f4a8e2dfb2a96b3ce84e5a5802d4de22797d6d2471b3745627a663cf15c4103e
 
 scopeconfig:
   - scope: go
