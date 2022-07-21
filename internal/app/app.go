@@ -12,6 +12,6 @@ type App struct {
 	Logger     *logger.ZapLogger
 }
 
-func (a *App) Start() {}
+func (a *App) Start(check func(err error)) {}
 
-func (a *App) Shutdown() {}
+func (a *App) Shutdown(check func(err error)) {}
