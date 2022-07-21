@@ -23,6 +23,14 @@ fileignoreconfig:
   checksum: 52596ae64daec8fb34cf01159cee4a23e7be2f68a6073a37fdbd1653da49ef73
 - filename: internal/pkg/config/config.go
   checksum: 16e216e66cb874ebe513c2f82a1e483066438a2306b48eacf2175140da4253bc
+- filename: configs/local.yaml
+  checksum: 4ec019b8249dfe06a15045dbfaee4dcaa8b32e974e642bfa0b3c657afafc58cd
+- filename: configs/default.yaml
+  checksum: 601b2b0dbe22376627d8a8f2f905832af3a14ac55a76cbd3b5f73aca77747e78
+- filename: internal/app/config/config.go
+  checksum: 0200b737f38e0b8dbc421c6a043219e51a3abaecb8bae9c90394bc8b123135e2
+- filename: internal/app/config/config_test.go
+  checksum: 1564ed08ed3c3d8a09df9c4546dded8227d4a5228480f5177ae9062dbc4b7eeb
 
 scopeconfig:
   - scope: go
