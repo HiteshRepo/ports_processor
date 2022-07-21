@@ -5,6 +5,10 @@ fileignoreconfig:
   checksum: 4c1378fc8b593e4b546b192512d756e1202002ccb52b27145730d9136d85c419
 - filename: internal/pkg/db/db.go
   checksum: 3b47e205f53affb248e339da1d73a4239df7841e80a8c302d90c0ffb52c0ca44
+- filename: internal/pkg/logger/logger_test.go
+  checksum: fb6e50ccb47609616623cccc2ca107401232fb5887d2b32c39160f5a692dc069
+- filename: internal/pkg/logger/logger.go
+  checksum: 5ad49d2fff18b681847b2eb06932583c1c21aae3d96d6198715bf64eab3a0baa
 
 scopeconfig:
   - scope: go
