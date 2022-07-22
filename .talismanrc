@@ -39,6 +39,8 @@ fileignoreconfig:
   checksum: 2fc6fb099f4ae96e061bbd60ee600439be8f03591e081378a9a1181deb8ac506
 - filename: test/integration/ports_processor/port_processor_test.go
   checksum: d294e4d5c90f6b2e31d2e7c0e354611c261c43676a62c812af3b40dfbabe8c0b
+- filename: build/Dockerfiles/local/dependencies.yml
+  checksum: 2de7f96a3a28f89f52102333f9a22fb8b33b723a8c55b0236c07c52292071f24
 
 scopeconfig:
   - scope: go

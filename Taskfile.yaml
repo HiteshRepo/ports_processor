@@ -1,0 +1,99 @@
+version: '3'
+
+env:
+  ENV: Local
+
+includes:
+  ports_processor: ./build/Taskfiles/Taskfile.yaml
+  pkg: ./build/Taskfiles/Taskfile-pkg.yaml
+
+tasks:
+  mod:
+    cmds:
+      - go mod tidy
+      - go mod vendor
+
+  lint:
+    cmds:
+      - golangci-lint run
+
+  test:
+    desc: "Test apps with coverage (parallel)"
+    deps: [ ports_processor:test, pkg:test]
+    cmds:
+      - cmd: " [ $ENV = 'Local' ] && task test:integration || rm -rf .task/checksum/*-test"
+    silent: true
+
+  prep:test:
+    desc: "Prepare artifacts for integration test (sequential)"
+    cmds:
+      - task: integration:prep
+
+  test:seq:
+    desc: "Test apps with coverage (sequential)"
+    cmds:
+      - task: pkg:test
+      - task: ports_processor:test
+      - cmd: " [ $ENV = 'Local' ] && task test:integration || exit 0"
+
+  test:integration:
+    cmds:
+      - task: ports_processor:test:integration
+
+  compile:
+    desc: "Create go binaries for all apps (parallel)"
+    deps: [ ports_processor:compile ]
+    cmds:
+      - cmd: " [ $ENV = 'Local' ] && exit 0 || rm -rf ./build/out/*"
+    silent: true
+
+  build:
+    desc: "Test and compile all apps (parallel)"
+    deps: [ ports_processor:build ]
+    cmds:
+      - cmd: exit 0
+    silent: true
+
+  go-gen:
+    desc: "Generate go code"
+    cmds:
+      - go generate -tags wireinject ./...
+
+  generate:
+    desc: "Generate code"
+    cmds:
+      - task: clean-generate
+      - task: go-gen
+
+  clean-cache:
+    desc: "Clear all task cache"
+    cmds:
+      - rm -rf .task
+
+  clean-builds:
+    desc: "Clear all binaries"
+    cmds:
+      - rm -rf ./build/out
+
+  clean-generate:
+    desc: "Clear all generated code"
+    cmds:
+      - find . -type f -name "wire_gen.go" -not -wholename './vendor/*'| xargs rm
+      - find . -type d -name mocks | xargs rm -rf
+
+  prune:
+    desc: "Clean all"
+    cmds:
+      - task: clean-cache
+      - task: clean-builds
+      - task: clean-generate
+
+  run:dependencies:
+    desc: "Starts Docker containers needed to run the services locally"
+    cmds:
+      - docker-compose -f ./build/Dockerfiles/local/dependencies.yml up -d
+
+  run:local:
+    desc: "Run the services locally"
+    deps: [ run:dependencies, ports_processor:run:local ]
+

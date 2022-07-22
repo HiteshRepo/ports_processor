@@ -1,0 +1,60 @@
+version: '3'
+
+vars:
+  BUILD_TAG:
+    sh: if [ "$GOARCH" == "arm64" ]; then echo "dynamic"; else echo "musl"; fi
+
+tasks:
+  compile:
+    cmds:
+      - go build -o ./build/out/ports_processor -a -tags {{.BUILD_TAG}} -ldflags "-X  main.GitCommit={{.GIT_COMMIT}} cmd/main.go
+    silent: true
+    sources:
+      - ./internal/app/**/*.go
+      - ./internal/pkg/**/*.go
+      - ./cmd/**/*.go
+    generates:
+      - ./build/out/ports_processor
+    vars:
+      GIT_COMMIT:
+        sh: git rev-parse HEAD
+
+  test:
+    dir: ./internal/app
+    cmds:
+      - |
+        if [ "$GOARCH" == "arm64" ]; then
+          gotestsum --format=testname  --packages ./... --  -coverprofile=coverage.out -tags=dynamic ./...
+        else
+          gotestsum --format=testname  --packages ./... --  -coverprofile=coverage.out ./...
+        fi
+    silent: true
+    sources:
+      - ./**/*.go
+    generates:
+      - coverage.out
+
+  test:integration:
+    dir: ./test/integration/ports_processor
+    cmds:
+      - |
+        if [ "$GOARCH" == "arm64" ]; then
+          gotestsum --format=testname  --packages ./... --  -coverprofile=coverage.out -tags=dynamic ./...
+        else
+          gotestsum --format=testname  --packages ./... --  -coverprofile=coverage.out ./...
+        fi
+    silent: true
+    sources:
+      - ./**/*.go
+    generates:
+      - coverage.out
+
+  build:
+    deps: [ test, compile ]
+    cmds:
+      - cmd: exit 0
+    silent: true
+
+  run:local:
+    cmds:
+      - go run cmd/main.go -configFile ./configs/local.yaml

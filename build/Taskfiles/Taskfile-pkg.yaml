@@ -1,0 +1,16 @@
+version: '3'
+
+tasks:
+  test:
+    dir: ./internal/pkg
+    cmds:
+      - |
+        if [ "$GOARCH" == "arm64" ]; then
+          gotestsum --format=testname  --packages ./... --  -coverprofile=coverage.out -tags=dynamic ./...
+        else
+          gotestsum --format=testname  --packages ./... --  -coverprofile=coverage.out ./...
+        fi
+    sources:
+      - ./**/*.go
+    generates:
+      - coverage.out
