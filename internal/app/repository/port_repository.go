@@ -9,7 +9,7 @@ import (
 )
 
 type PortRepository interface {
-	UpsertPort(ctx context.Context, dbName string, port *dbModel.Port) error
+	UpsertPort(ctx context.Context, tblName string, port *dbModel.Port) error
 }
 
 type portRepository struct {
@@ -20,8 +20,8 @@ func ProvidePortRepository(db *gorm.DB) PortRepository {
 	return &portRepository{portDb: db}
 }
 
-func (pr *portRepository) UpsertPort(ctx context.Context, dbName string, port *dbModel.Port) error {
-	err := pr.portDb.WithContext(ctx).Table(dbName).Where(dbModel.Port{Name: port.Name}).Save(port).Error
+func (pr *portRepository) UpsertPort(ctx context.Context, tblName string, port *dbModel.Port) error {
+	err := pr.portDb.WithContext(ctx).Table(tblName).Where(dbModel.Port{Name: port.Name}).Save(port).Error
 	if err != nil {
 		return err
 	}
