@@ -41,6 +41,8 @@ fileignoreconfig:
   checksum: d294e4d5c90f6b2e31d2e7c0e354611c261c43676a62c812af3b40dfbabe8c0b
 - filename: build/Dockerfiles/local/dependencies.yml
   checksum: 2de7f96a3a28f89f52102333f9a22fb8b33b723a8c55b0236c07c52292071f24
+- filename: README.md
+  checksum: 0cd0ad11f1015e6e68b3f751a46e212e081497cc2bf960ae1a86a9e2f77de849
 
 scopeconfig:
   - scope: go
