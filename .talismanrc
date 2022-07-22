@@ -30,11 +30,15 @@ fileignoreconfig:
 - filename: internal/app/config/config.go
   checksum: fad8fe41c10be4e7464552d210fa1eb65af758740b6b84d953e8058a61744a9a
 - filename: internal/app/config/config_test.go
-  checksum: c07cb7f89910f38ebe3e8f8186dc4f2d4397479db77cf6786dc0b7cea3079b3a
+  checksum: a12e9fb622224ac952a7419ddc132ea6f40427aa89e09f4dc6a1fca55adbd90f
 - filename: data/ports.json
   checksum: f770dd941277768f38343e9d27a84e76b6f540191ab7f557ac077fb38b390177
 - filename: internal/app/repository/port_repository_test.go
   checksum: 6800f996b30c81c5f5350adff9145fd956d09a0056e4d06433441d67734864db
+- filename: test/scripts/000001_create_port_table.up.sql
+  checksum: 2fc6fb099f4ae96e061bbd60ee600439be8f03591e081378a9a1181deb8ac506
+- filename: test/integration/ports_processor/port_processor_test.go
+  checksum: d294e4d5c90f6b2e31d2e7c0e354611c261c43676a62c812af3b40dfbabe8c0b
 
 scopeconfig:
   - scope: go

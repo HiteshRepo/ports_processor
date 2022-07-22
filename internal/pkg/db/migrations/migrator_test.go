@@ -40,7 +40,7 @@ func TestMigrationSuite(t *testing.T) {
 	require.NoError(t, err)
 
 	cnf := suites.FullSuiteConfig{
-		RootDir:             path.Join(workingDirectory, "../../../../"),
+		RootDir:        path.Join(workingDirectory, "../../../../"),
 		EnablePostgres: true,
 	}
 

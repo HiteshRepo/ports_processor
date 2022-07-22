@@ -24,11 +24,11 @@ func (c *configSuite) SetupTest() {
 	environmentVariables := map[string]string{
 		"LOG_LEVEL": "debug",
 
-		"DB_NAME":       "postgresdb",
-		"DB_USER":       "tsdbadmin1",
-		"DB_HOST":       "localhost",
-		"DB_PASSWORD":   "tsdbpwd",
-		"DB_SCHEMA":     "public",
+		"DB_NAME":          "postgresdb",
+		"DB_USER":          "tsdbadmin1",
+		"DB_HOST":          "localhost",
+		"DB_PASSWORD":      "tsdbpwd",
+		"DB_SCHEMA":        "public",
 		"PORTS_TABLE_NAME": "ports",
 	}
 	for environmentVariable, value := range environmentVariables {

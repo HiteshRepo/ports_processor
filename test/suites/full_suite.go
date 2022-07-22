@@ -33,10 +33,10 @@ type IntegrationSuite interface {
 }
 
 type FullSuiteConfig struct {
-	RootDir string
-	EnablePostgres bool
-	PathToDbScripts string
-	PostgresDBName      string
+	RootDir            string
+	EnablePostgres     bool
+	PathToDbScripts    string
+	PostgresDBName     string
 	DisablePgBindMount bool
 }
 

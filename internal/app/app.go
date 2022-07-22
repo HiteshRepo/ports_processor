@@ -11,6 +11,7 @@ import (
 	"github.com/hiteshpattanayak-tw/ports_processor/internal/pkg/db/migrations"
 	"github.com/hiteshpattanayak-tw/ports_processor/internal/pkg/json_processor"
 	"github.com/hiteshpattanayak-tw/ports_processor/internal/pkg/logger"
+	"path"
 	"strings"
 )
 
@@ -24,10 +25,13 @@ type App struct {
 	Migrator   *migrations.Migrator
 }
 
-func (a *App) Start(_ func(err error)) {
+func (a *App) Start(_ func(err error), workingDirectory string) {
 	a.Migrator.RunMigrations()
 	go a.watchJsonStream()
-	a.JsonStream.Start(a.AppConfig.GetServerConfig().PortsFilePath)
+
+	portsFilePath := path.Join(workingDirectory, a.AppConfig.GetServerConfig().PortsFilePath)
+
+	a.JsonStream.Start(portsFilePath)
 }
 
 func (a *App) Shutdown(_ func(err error)) {}

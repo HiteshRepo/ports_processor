@@ -14,7 +14,10 @@ func main() {
 	app, err := di.InitializeApp(ctx, cancel)
 	check(err)
 
-	app.Start(check)
+	workingDirectory, err := os.Getwd()
+	check(err)
+
+	app.Start(check, workingDirectory)
 	<-interrupt()
 	app.Shutdown(check)
 }
